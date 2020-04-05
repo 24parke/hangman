@@ -6,6 +6,9 @@ word = getpass.getpass("Player1 choose a word: ")
 if len(word) > 19:
     print("Please choose a shorter word.")
     word = getpass.getpass("Player1 choose a word: ")
+if not word.isalpha:
+    print("Please choose a word with only letters.")
+    word = getpass.getpass("Player1 choose a word: ")
 
 letters_guessed = ""
 mistakes = 0
@@ -42,7 +45,7 @@ while mistakes <= 6 and "_" in underscore_word and lose == False:
             if guess not in letters_guessed:
                 letters_guessed += guess
             print("Word: " + " ".join(underscore_word))
-            print("Letters guessed: " + letters_guessed)
+            print("Letters guessed: " + ", ".join(letters_guessed))
             print("Mistakes: " + str(mistakes))
 
             if "".join(underscore_word).isalpha():
@@ -53,7 +56,7 @@ while mistakes <= 6 and "_" in underscore_word and lose == False:
             mistakes += 1
             letters_guessed += guess
             print("Word: " + " ".join(underscore_word))
-            print("Letters guessed: " + letters_guessed)
+            print("Letters guessed: " + ", ".join(letters_guessed))
             print("Mistakes: " + str(mistakes))
 
             if mistakes == 6:
