@@ -29,7 +29,7 @@ while mistakes <= 6 and "_" in underscore_word and lose == False:
             suffix = "nd"
         elif increment == 2:
             suffix = "rd"
-        elif 19 > increment > 3:
+        elif 19 > increment >= 4:
             suffix = "th"
         increment += 1
         ask_guesser = "Player2 " + str(i + 1) + suffix + " guess: "
