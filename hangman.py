@@ -21,7 +21,7 @@ Welcome to Hangman! Please choose a mode: 1 (Player1 choose word, player2 guess)
 
 if mode == 1:
     print(
-        "Welcome to Hangman! Player1 will choose the word, and Player2 will guess the letters. *6 mistakes* . Good Luck!")
+        "Welcome to Hangman! Player1 will choose the word, and Player2 will guess the letters. *6 mistakes* Good Luck!")
 
     word = getpass.getpass("Player1 choose a word: ")
     if len(word) > 19:
@@ -37,7 +37,7 @@ if mode == 1:
     increment = 0
     lose = False
 
-    while lives > 0 and "_ " in underscore_word and lose == False:
+    while lives > 0 and "_ " in underscore_word and lose is False:
         for i in range(20):
             suffix = ""
 
@@ -133,8 +133,6 @@ elif mode == 2:
                 p2win = True
                 break
 
-
-
         if p1guess in p2word and p1guess not in p1letters_guessed:
 
             for idx, char in enumerate(p2word):
@@ -221,7 +219,7 @@ elif mode == 3:
 
     print("\n" + "".join(underscore_word))
 
-    while lives > 0 and "_ " in underscore_word and lose == False:
+    while lives > 0 and "_ " in underscore_word and lose is False:
         for i in range(20):
             suf = ""
 
