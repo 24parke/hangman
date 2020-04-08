@@ -81,6 +81,9 @@ if mode == 1:
                     lose = True
                     break
 
+                # ______________________________________________________________________________________________
+                # M O D E 2
+
 elif mode == 2:
     print(
         "Welcome to Hangman! Choose a word, then guess the other player's word. First to guess wins!")
@@ -120,14 +123,25 @@ elif mode == 2:
         print("Word: {}\nLives: {}".format(" ".join(p2underscore_word), p1lives))
         p1guess = input("player1 guess: ")
 
-        if p1guess in p2word:
+        if len(p1guess) > 1:
+            if p1guess == p2word:
+                print("\n" + "Player1 wins!🙂")
+                p1win = True
+                break
+            else:
+                print("\n" + "Player2 wins!🙂")
+                p2win = True
+                break
+
+
+
+        if p1guess in p2word and p1guess not in p1letters_guessed:
 
             for idx, char in enumerate(p2word):
                 if char == p1guess:
                     p2underscore_word[idx] = p1guess
 
-            if p1guess not in p1letters_guessed:
-                p1letters_guessed += p1guess
+            p1letters_guessed += p1guess
             print("Word after guess: " + " ".join(p2underscore_word))
             print("Letters guessed: " + ", ".join(p1letters_guessed))
             print("Lives: " + str(p1lives))
@@ -155,14 +169,23 @@ elif mode == 2:
         print("Word: {}\nLives: {}".format(" ".join(p1underscore_word), p2lives))
         p2guess = input("player2 guess: ")
 
-        if p2guess in p1word:
+        if len(p2guess) > 1:
+            if p2guess == p1word:
+                print("\n" + "Player2 wins!🙂")
+                p2win = True
+                break
+            else:
+                print("\n" + "Player1 wins!🙂")
+                p1win = True
+                break
+
+        if p2guess in p1word and p2guess not in p2letters_guessed:
 
             for idx, char in enumerate(p1word):
                 if char == p2guess:
                     p1underscore_word[idx] = p2guess
 
-            if p2guess not in p2letters_guessed:
-                p2letters_guessed += p2guess
+            p2letters_guessed += p2guess
             print("Word after guess: " + " ".join(p1underscore_word))
             print("Letters guessed: " + ", ".join(p2letters_guessed))
             print("Lives: " + str(p2lives))
@@ -182,6 +205,10 @@ elif mode == 2:
                 print("\n" + "Player1 wins!🙂")
                 p1win = True
                 break
+
+                # ______________________________________________________________________________________________
+                # M O D E 3
+
 elif mode == 3:
     generator = RandomWords()
     CPU = generator.get_random_word()
@@ -191,6 +218,8 @@ elif mode == 3:
     underscore_word = ["_ " for i in CPU]
     increment = 0
     lose = False
+
+    print("\n" + "".join(underscore_word))
 
     while lives > 0 and "_ " in underscore_word and lose == False:
         for i in range(20):
@@ -205,6 +234,7 @@ elif mode == 3:
             elif 3 <= increment < 19:
                 suf = "th"
             increment += 1
+            print("\n" + "Letters guessed so far: " + ", ".join(letters_guessed))
             ask_player = "Your " + str(i + 1) + suf + " guess: "
             guess_char = input(ask_player)
 
@@ -216,7 +246,7 @@ elif mode == 3:
 
                 if guess_char not in letters_guessed:
                     letters_guessed += guess_char
-                print("\n" + "Word: " + " ".join(underscore_word))
+                print("Word: " + " ".join(underscore_word))
                 print("Letters guessed: " + ", ".join(letters_guessed))
                 print("Lives: " + str(lives))
 
@@ -227,7 +257,7 @@ elif mode == 3:
             else:
                 lives -= 1
                 letters_guessed += guess_char
-                print("\n" + "Word: " + " ".join(underscore_word))
+                print("Word: " + " ".join(underscore_word))
                 print("Letters guessed: " + ", ".join(letters_guessed))
                 print("Lives: " + str(lives))
 
