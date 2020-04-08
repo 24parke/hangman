@@ -120,16 +120,16 @@ elif mode == 2:
         # PLAYER 1 TURN
 
         print("\n" + "__________player1 turn__________")
-        print("Word: {}\nLives: {}".format(" ".join(p2underscore_word), p1lives))
+        print("Word: {}\nLetters guessed: {}\nLives: {}".format(" ".join(p2underscore_word), ", ".join(p1letters_guessed), p1lives))
         p1guess = input("player1 guess: ")
 
         if len(p1guess) > 1:
             if p1guess == p2word:
-                print("\n" + "Player1 wins!🙂")
+                print("\n" + "Player1 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p1win = True
                 break
             else:
-                print("\n" + "Player2 wins!🙂")
+                print("\n" + "Player2 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p2win = True
                 break
 
@@ -145,7 +145,7 @@ elif mode == 2:
             print("Lives: " + str(p1lives))
 
             if "".join(p2underscore_word).isalpha() or p2lives == 0:
-                print("\n" + "Player1 wins!🙂")
+                print("\n" + "Player1 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p1win = True
                 break
 
@@ -156,7 +156,7 @@ elif mode == 2:
             print("Letters guessed: " + ", ".join(p1letters_guessed))
             print("Lives: " + str(p1lives))
             if p1lives == 0:
-                print("\n" + "Player2 wins!🙂")
+                print("\n" + "Player2 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p2win = True
                 break
 
@@ -164,16 +164,16 @@ elif mode == 2:
         # _____________________________________________________________________________________________________
 
         print("\n" + "__________player2 turn__________")
-        print("Word: {}\nLives: {}".format(" ".join(p1underscore_word), p2lives))
+        print("Word: {}\nLetters guessed: {}\nLives: {}".format(" ".join(p1underscore_word), ", ".join(p2letters_guessed), p2lives))
         p2guess = input("player2 guess: ")
 
         if len(p2guess) > 1:
             if p2guess == p1word:
-                print("\n" + "Player2 wins!🙂")
+                print("\n" + "Player2 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p2win = True
                 break
             else:
-                print("\n" + "Player1 wins!🙂")
+                print("\n" + "Player1 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p1win = True
                 break
 
@@ -189,7 +189,7 @@ elif mode == 2:
             print("Lives: " + str(p2lives))
 
             if "".join(p1underscore_word).isalpha() or p1lives == 0:
-                print("\n" + "Player2 wins!🙂")
+                print("\n" + "Player2 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p2win = True
                 break
 
@@ -200,7 +200,7 @@ elif mode == 2:
             print("Letters guessed: " + ", ".join(p2letters_guessed))
             print("Lives: " + str(p2lives))
             if p2lives == 0:
-                print("\n" + "Player1 wins!🙂")
+                print("\n" + "Player1 wins!🙂" + "\n" + "player1 word: " + p1word + "\n" + "player2 word: " + p2word)
                 p1win = True
                 break
 
