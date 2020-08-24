@@ -104,7 +104,7 @@ elif mode == 2:
         print("Please choose a word with only letters.")
         p2word = getpass.getpass("Player2 choose a word: ")
 
-    p1letters_guessed = ""
+    p1letters_guessed: str = ""
     p1underscore_word = ["_ " for i in p1word]
     p1increment = 0
     p1lives = 6
@@ -120,7 +120,9 @@ elif mode == 2:
         # PLAYER 1 TURN
 
         print("\n" + "__________player1 turn__________")
-        print("Word: {}\nLetters guessed: {}\nLives: {}".format(" ".join(p2underscore_word), ", ".join(p1letters_guessed), p1lives))
+        print("Word: {}\nLetters guessed: {}\nLives: {}"
+              .format(" ".join(p2underscore_word), ", ".join(p1letters_guessed), p1lives))
+
         p1guess = input("player1 guess: ")
 
         if len(p1guess) > 1:
@@ -164,7 +166,8 @@ elif mode == 2:
         # _____________________________________________________________________________________________________
 
         print("\n" + "__________player2 turn__________")
-        print("Word: {}\nLetters guessed: {}\nLives: {}".format(" ".join(p1underscore_word), ", ".join(p2letters_guessed), p2lives))
+        print("Word: {}\nLetters guessed: {}\nLives: {}"
+              .format(" ".join(p1underscore_word), ", ".join(p2letters_guessed), p2lives))
         p2guess = input("player2 guess: ")
 
         if len(p2guess) > 1:
@@ -232,7 +235,9 @@ elif mode == 3:
             elif 3 <= increment < 19:
                 suf = "th"
             increment += 1
-            print("\n" + "Letters guessed so far: " + ", ".join(letters_guessed))
+            print("\n" + "Word so far: " + " ".join(underscore_word))
+            print("Lives left: " + str(lives))
+            print("Letters guessed so far: " + ", ".join(letters_guessed))
             ask_player = "Your " + str(i + 1) + suf + " guess: "
             guess_char = input(ask_player)
 
@@ -244,9 +249,7 @@ elif mode == 3:
 
                 if guess_char not in letters_guessed:
                     letters_guessed += guess_char
-                print("Word: " + " ".join(underscore_word))
-                print("Letters guessed: " + ", ".join(letters_guessed))
-                print("Lives: " + str(lives))
+                print("Word after guess: " + " ".join(underscore_word))
 
                 if "".join(underscore_word).isalpha():
                     print("You win!🙂")
@@ -255,9 +258,7 @@ elif mode == 3:
             else:
                 lives -= 1
                 letters_guessed += guess_char
-                print("Word: " + " ".join(underscore_word))
-                print("Letters guessed: " + ", ".join(letters_guessed))
-                print("Lives: " + str(lives))
+                print("Word after guess: " + " ".join(underscore_word))
 
                 if lives == 0:
                     print("You lose!🙁")
